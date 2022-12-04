@@ -2,6 +2,7 @@ package service
 
 import io.restassured.response.Response
 import org.json.simple.JSONObject
+import org.junit.Assert
 import utils.Keys
 import utils.PropertiesUtil
 import utils.RestUtil
@@ -83,6 +84,10 @@ class Service {
 
     fun getBody(key: String?): String {
         return response!!.body.jsonPath().getString(key)
+    }
+
+    fun checkContractType(type: Class<*>?, jsonAttribute: String?) {
+        Assert.assertEquals(type, response!!.jsonPath().get<Any>(jsonAttribute).javaClass)
     }
 
 }
