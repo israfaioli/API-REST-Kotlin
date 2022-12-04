@@ -53,4 +53,12 @@ class Steps {
         Assert.assertEquals(service!!.getBody("dueDate"), dataTable.row(1).get(2))
         Assert.assertEquals(service!!.getBody("completed"), dataTable.row(1).get(3))
     }
+
+    @Então("verificado se o contrato de activity esta em conformidade")
+    fun verificado_se_o_contrato_de_activity_esta_em_conformidade() {
+        service!!.checkContractType(Integer::class.javaObjectType, "id[0]")
+        service!!.checkContractType(String::class.javaObjectType, "title[0]")
+        service!!.checkContractType(String::class.javaObjectType, "dueDate[0]")
+        service!!.checkContractType(Boolean::class.javaObjectType, "completed[0]")
+    }
 }
