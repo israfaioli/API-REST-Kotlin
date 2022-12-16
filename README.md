@@ -37,4 +37,5 @@ Em alguns casos, a depender de suas configurações locais, pode ser necessário
 
 ```
 mvn verify
+mvn clean test -Dtest=TestRunner -Dcucumber.options="-t @nome_da_tag"
 ```
